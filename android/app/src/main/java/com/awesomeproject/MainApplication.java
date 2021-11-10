@@ -11,10 +11,18 @@ import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
+// 热更新
+import cn.reactnative.modules.update.UpdateContext;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
       new ReactNativeHost(this) {
+        // 热更新
+        @Override
+        protected String getJSBundleFile() {
+          return UpdateContext.getBundleUrl(MainApplication.this);
+        }
+
         @Override
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
