@@ -1,4 +1,5 @@
 {
   "name": "AwesomeProject",
-  "displayName": "AwesomeProject"
+  "displayName": "AwesomeProject",
+  "plugins": ["./react-native-mmkv-plugin.js"]
 }
