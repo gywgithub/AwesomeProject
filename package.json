@@ -12,6 +12,7 @@
   "dependencies": {
     "react": "17.0.2",
     "react-native": "0.66.2",
+    "react-native-mmkv": "^1.5.3",
     "react-native-update": "^7.3.4"
   },
   "devDependencies": {

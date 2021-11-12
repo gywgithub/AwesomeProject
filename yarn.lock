@@ -5222,6 +5222,11 @@ react-native-codegen@^0.0.7:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-mmkv@^1.5.3:
+  version "1.5.3"
+  resolved "https://registry.npmmirror.com/react-native-mmkv/download/react-native-mmkv-1.5.3.tgz#106fae1322bb86d36e70f436da656b165d8f9d1e"
+  integrity sha1-EG+uEyK7htNucPQ22mVrFl2PnR4=
+
 react-native-update@^7.3.4:
   version "7.3.4"
   resolved "https://registry.npmmirror.com/react-native-update/download/react-native-update-7.3.4.tgz"
