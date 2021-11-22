@@ -12,7 +12,12 @@ const age = storage.getNumber('user.age') // 21
 console.log(username)
 console.log(age)
 // --- end ---
-
+// <Image
+//   source={
+//     require('./assets/images/lf.png')
+//   }
+//   style={{ width: 200, height: 200 }}
+// />
 const App = () => {
   return (
     <ScrollView>
@@ -20,12 +25,7 @@ const App = () => {
       <Text>abc</Text>
       <View>
         <Text>some more text</Text>
-        <Image
-          source={
-            require('./images/avatar-mini.png')
-          }
-          style={{ width: 200, height: 200 }}
-        />
+
         <TextInput style={{
           height: 40,
           borderColor: 'gray',
