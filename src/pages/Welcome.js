@@ -5,7 +5,7 @@ const Welcome = () => {
   return (
     <ScrollView>
       <View>
-      <Text>Welcome</Text>
+        <Text>Welcome</Text>
       </View>
     </ScrollView>
   );
