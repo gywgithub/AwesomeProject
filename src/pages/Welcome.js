@@ -7,27 +7,56 @@ import {
   SafeAreaView,
   TouchableOpacity,
   StyleSheet,
+  ImageBackground,
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
 
-// const Welcome = () => {
 class Welcome extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      intervalId: null,
+      timeNum: 3,
+    };
   }
+  async componentDidMount() {
+    this.animationRedirect();
+  }
+
+  animationRedirect = () => {
+    const intervalId = setInterval(() => {
+      let n = this.state.timeNum - 1;
+      if (n === 0) {
+        clearInterval(intervalId);
+        this.props.navigation.navigate({
+          name: 'Home',
+        });
+      }
+      this.setState({
+        timeNum: n--,
+      });
+    }, 1000);
+    this.setState({
+      intervalId: intervalId,
+    });
+  };
   goHome = () => {
     console.log('Go Home');
     this.props.navigation.dispatch(StackActions.push('Home'));
   };
 
   render() {
+    const {timeNum} = this.state;
     return (
-      <SafeAreaView style={styles.styles}>
-        <View>
-          <Text>Welcome</Text>
-          <Button title="Go Home" onPress={this.goHome} />
-        </View>
-      </SafeAreaView>
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../assets/images/sl.jpeg')}
+          style={styles.imageBackground}>
+          <Text onPress={this.goHome} style={styles.goHomeText}>
+            {timeNum} 跳过
+          </Text>
+        </ImageBackground>
+      </View>
     );
   }
 }
@@ -35,6 +64,25 @@ class Welcome extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+  goHomeText: {
+    borderWidth: 1,
+    borderColor: '#fff',
+    borderRadius: 10,
+    width: 70,
+    textAlign: 'center',
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    color: '#fff',
+    padding: 8,
+  },
+  imageBackground: {
+    width: '100%',
+    height: '100%',
   },
 });
 
