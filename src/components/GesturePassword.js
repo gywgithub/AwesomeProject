@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import OkGesturePassword from 'react-native-ok-gesture-password';
 import {StackActions, useRoute} from '@react-navigation/native';
-import {Toast, NavigationBar} from 'teaset-pro';
+import {NavigationBar} from 'teaset-pro';
 
 export default class GesturePasswordPage extends Component {
   state = {
@@ -26,13 +26,8 @@ export default class GesturePasswordPage extends Component {
   constructor() {
     super();
     this.state = {
-      password1: '',
-      password2: '',
-      message: '请绘制原手势密码',
-      color: 'black',
-      lastPage: '',
+      message: '',
       n: 4,
-      buttonText: '重新绘制手势',
     };
   }
 
@@ -45,10 +40,14 @@ export default class GesturePasswordPage extends Component {
 
   handleFinish = async password => {
     console.log(password);
+    this.setState({
+      message: password
+    })
+    this._resetHeadPoint()
   };
 
   render() {
-    const {message, password1, password2, lastPage, buttonText} = this.state;
+    const {message} = this.state;
     return (
       <View style={styles.container}>
         <NavigationBar
@@ -91,7 +90,7 @@ export default class GesturePasswordPage extends Component {
             />
           </View>
         </View>
-        <Text style={{fontSize: 16, color: this.state.color}}>{message}</Text>
+        <Text style={{fontSize: 16}}>{message}</Text>
         <OkGesturePassword
           style={styles.gesturePassword}
           pointBackgroundColor={'white'}
@@ -205,15 +204,5 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: '100%',
     height: '100%',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });

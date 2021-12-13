@@ -50,7 +50,7 @@ class Welcome extends Component {
     return (
       <View style={styles.container}>
         <ImageBackground
-          source={require('../assets/images/sl.jpeg')}
+          source={require('../assets/images/1.jpeg')}
           style={styles.imageBackground}>
           <Text onPress={this.goHome} style={styles.goHomeText}>
             {timeNum} 跳过

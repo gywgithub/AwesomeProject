@@ -1,17 +1,78 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  SafeAreaView,
+  TouchableOpacity,
+} from 'react-native';
 import {StackActions} from '@react-navigation/native';
 
 const DATA = [
   {
     id: '1',
-    title: 'GesturePassword',
-    page: 'GesturePasswordPage'
+    title: 'react-native-ok-gesture-password',
+    page: 'GesturePasswordPage',
   },
   {
     id: '2',
-    title: 'more',
-  }
+    title: 'react-native-mmkv',
+    page: 'MmkvPage',
+  },
+  {
+    id: '3',
+    title: 'react-native-fs',
+    page: 'RNFSPage',
+  },
+  {
+    id: '4',
+    title: 'react-native-progress',
+  },
+  {
+    id: '5',
+    title: 'Teaset-pro',
+  },
+  {
+    id: '6',
+    title: 'react-native-svg',
+  },
+  {
+    id: '7',
+    title: 'react-native-vector-icons',
+  },
+  {
+    id: '8',
+    title: 'teaset-pro',
+  },
+  {
+    id: '9',
+    title: 'react-native-swiper',
+  },
+  {
+    id: '10',
+    title: 'react-native-htmlview',
+  },
+  {
+    id: '11',
+    title: 'react-native-device-info',
+  },
+  {
+    id: '12',
+    title: 'react-native-camera',
+  },
+  {
+    id: '13',
+    title: 'react-native-audio',
+  },
+  {
+    id: '14',
+    title: 'react-native-android-auto-update',
+  },
+  {
+    id: '15',
+    title: 'react-native-amap-geolocation',
+  },
 ];
 
 // const Item = ({title}) => {
@@ -35,20 +96,29 @@ class ComponentsPage extends Component {
     console.log('componentDidMount');
   }
 
-  goPage = (page) => {
-    console.log(page)
-    this.props.navigation.navigate({
-      name: page,
-    });
-  }
+  goPage = page => {
+    if (page) {
+      this.props.navigation.navigate({
+        name: page,
+      });
+    } else {
+      console.log('no page');
+    }
+  };
 
   render() {
     const Item = ({item}) => {
       return (
         <TouchableOpacity onPress={() => this.goPage(item.page)}>
-        <View style={{width: '100%',borderColor:'#ccc',borderBottomWidth:1, padding: 16}}>
-          <Text style={{fontSize: 20}}>{item.title}</Text>
-        </View>
+          <View
+            style={{
+              width: '100%',
+              borderColor: '#ccc',
+              borderBottomWidth: 1,
+              padding: 16,
+            }}>
+            <Text style={{fontSize: 20}}>{item.title}</Text>
+          </View>
         </TouchableOpacity>
       );
     };
@@ -67,8 +137,8 @@ class ComponentsPage extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 export default ComponentsPage;

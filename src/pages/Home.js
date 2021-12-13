@@ -37,7 +37,7 @@ const Home = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
+            <MaterialCommunityIcons name="home-outline" color={color} size={size} />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}
@@ -53,11 +53,11 @@ const Home = () => {
         }}
       />
       <Tab.Screen
-        name="Settings"
+        name="Discover"
         component={SettingsScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="cog" color={color} size={size} />
+            <MaterialCommunityIcons name="compass-outline" color={color} size={size} />
           ),
           tabBarBadge: 3,
           tabBarLabelStyle: styles.tabBarLabel,
@@ -68,7 +68,7 @@ const Home = () => {
         component={MyPage}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="account" color={color} size={size} />
+            <MaterialCommunityIcons name="account-outline" color={color} size={size} />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}
