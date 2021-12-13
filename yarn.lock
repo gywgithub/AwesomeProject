@@ -5447,6 +5447,11 @@ react-native-mmkv@^1.5.3:
   resolved "https://registry.npmmirror.com/react-native-mmkv/download/react-native-mmkv-1.5.3.tgz#106fae1322bb86d36e70f436da656b165d8f9d1e"
   integrity sha1-EG+uEyK7htNucPQ22mVrFl2PnR4=
 
+react-native-ok-gesture-password@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmmirror.com/react-native-ok-gesture-password/download/react-native-ok-gesture-password-2.0.0.tgz#44079fafcaa50239bf938f317b30ff03f4d12377"
+  integrity sha1-RAefr8qlAjm/k48xezD/A/TRI3c=
+
 react-native-progress@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmmirror.com/react-native-progress/download/react-native-progress-5.0.0.tgz#f5ac6ceaeee27f184c660b00f29419e82a9d0ab0"
@@ -6305,6 +6310,11 @@ table@^5.2.3:
     lodash "^4.17.14"
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
+
+teaset-pro@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.npmmirror.com/teaset-pro/download/teaset-pro-0.8.6.tgz#df9116a03007f9f49c8d1216420442767f07e3f3"
+  integrity sha1-35EWoDAH+fScjRIWQgRCdn8H4/M=
 
 temp@0.8.3:
   version "0.8.3"

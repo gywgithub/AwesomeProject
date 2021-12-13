@@ -4,6 +4,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MyPage from './MyPage';
+import ComponentsPage from './ComponentsPage';
 
 const Tab = createBottomTabNavigator();
 
@@ -30,7 +31,7 @@ function SettingsScreen() {
 
 const Home = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
         name="Home"
         component={HomeScreen}
@@ -42,11 +43,21 @@ const Home = () => {
         }}
       />
       <Tab.Screen
+        name="Components"
+        component={ComponentsPage}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons name="format-list-text" color={color} size={size} />
+          ),
+          tabBarLabelStyle: styles.tabBarLabel,
+        }}
+      />
+      <Tab.Screen
         name="Settings"
         component={SettingsScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="cog" color={color} size={size} />
           ),
           tabBarBadge: 3,
           tabBarLabelStyle: styles.tabBarLabel,
@@ -57,7 +68,7 @@ const Home = () => {
         component={MyPage}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={size} />
+            <MaterialCommunityIcons name="account" color={color} size={size} />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}

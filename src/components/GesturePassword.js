@@ -8,13 +8,8 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import OkGesturePassword from 'react-native-ok-gesture-password';
-import {Toast, NavigationBar} from 'teaset-pro';
-import mmkv from '../utils/mmkv';
-import globalData from '../utils/globalData';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-import {setGesturePassword, logout, clearGesturePassword} from '../api/login';
-import {getDeviceId} from 'react-native-device-info';
 import {StackActions, useRoute} from '@react-navigation/native';
+import {Toast, NavigationBar} from 'teaset-pro';
 
 export default class GesturePasswordPage extends Component {
   state = {
@@ -50,76 +45,7 @@ export default class GesturePasswordPage extends Component {
 
   handleFinish = async password => {
     console.log(password);
-    if (password.length < 4) {
-      this.setState({
-        message: '最少连接4个点，请重新绘制',
-        color: 'red',
-      });
-      this._resetHeadPoint();
-      return false;
-    } else {
-      this.setState({
-        message: '',
-      });
-    }
-    if (this.state.password) {
-      if (this.state.password1) {
-        if (this.state.password1 === password) {
-          Toast.message('手势密码修改成功');
-          mmkv.setMMKVGesturePassword(this.state.password1);
-          this.handleGoBack();
-        } else {
-          this.setState({
-            message: '两次新手势不一致，请重新绘制',
-            color: 'red',
-            password1: '',
-            password2: '',
-          });
-        }
-      } else {
-        this.setState({
-          message: '请再次绘制新手势密码',
-          color: 'black',
-          password1: password,
-        });
-      }
-      this._resetHeadPoint();
-    } else {
-      if (mmkv.getMMKVGesturePassword() === password) {
-        this.setState({
-          password: password,
-          message: '请绘制新手势密码',
-          color: 'black',
-        });
-      } else {
-        Toast.message('原手势密码绘制不正确');
-        this._resetHeadPoint();
-        this.setState({
-          password: '',
-          password2: '',
-          password1: '',
-          message: '请绘制原手势密码',
-          color: 'black',
-        });
-      }
-      this._resetHeadPoint();
-    }
   };
-
-  resetPassword() {
-    this.setState({
-      password: '',
-      password2: '',
-      password1: '',
-      message: '请绘制原手势密码',
-      color: 'black',
-    });
-    Toast.message('手势密码已清空，请重新开始');
-  }
-
-  handleTextClick() {
-    this.resetPassword();
-  }
 
   render() {
     const {message, password1, password2, lastPage, buttonText} = this.state;
@@ -128,7 +54,7 @@ export default class GesturePasswordPage extends Component {
         <NavigationBar
           style={{backgroundColor: '#30B7FF'}}
           title=""
-          leftView={<NavigationBar.BackButton title="手势修改" />}
+          leftView={<NavigationBar.BackButton title="手势修改" onPress={this.handleGoBack} />}
         />
         <View style={{height: 70, marginTop: 130, marginBottom: 20}}>
           <View style={styles.headContent}>
@@ -182,9 +108,6 @@ export default class GesturePasswordPage extends Component {
             this.handleFinish(password);
           }}
         />
-        <Text style={{color: 'blue'}} onPress={() => this.handleTextClick()}>
-          {buttonText}
-        </Text>
       </View>
     );
   }
