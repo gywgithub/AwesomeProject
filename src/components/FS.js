@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {NavigationBar} from 'teaset-pro';
+import fs from '../utils/fs';
 
 class TemplateClassPage extends Component {
   constructor(props) {
@@ -11,6 +12,38 @@ class TemplateClassPage extends Component {
   }
   async componentDidMount() {
     console.log('componentDidMount');
+
+    console.log(fs.ExternalDirectoryPath); // /data/user/0/com.github_reactnative/files
+    var path = fs.ExternalDirectoryPath + '/test.txt';
+    let value = 'hello 123';
+    fs.writeFile(path, value, 'utf8')
+      .then(res => {
+        console.log('111');
+        // console.log(res)
+      })
+      .catch(err => {
+        console.log('eee');
+        console.log(err);
+        console.error(err);
+      });
+
+    fs.readFile(path, 'utf8')
+      .then(res => {
+        console.log('222');
+        console.log(res);
+      })
+      .catch(err => {
+        console.log('333');
+        console.error(err);
+      });
+
+    fs.unlink(path)
+      .then(res => {
+        console.log('delete file');
+      })
+      .catch(error => {
+        console.log();
+      });
   }
 
   handleGoBack = () => {
