@@ -73,6 +73,11 @@ const DATA = [
     id: '15',
     title: 'react-native-amap-geolocation',
   },
+  {
+    id: '16',
+    title: 'image gif',
+    desc: 'build.gradle add config'
+  },
 ];
 
 // const Item = ({title}) => {
