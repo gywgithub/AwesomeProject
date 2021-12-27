@@ -39,8 +39,8 @@ class TemplateClassPage extends Component {
       <View style={styles.container}>
         <NavigationBar
           style={{backgroundColor: '#30B7FF'}}
-          title=""
-          leftView={<NavigationBar.BackButton title="手势修改" onPress={this.handleGoBack} />}
+          title="MMKV"
+          leftView={<NavigationBar.BackButton title="" onPress={this.handleGoBack} />}
         />
         <Text>{title}</Text>
       </View>

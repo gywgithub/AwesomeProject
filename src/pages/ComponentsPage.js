@@ -76,7 +76,8 @@ const DATA = [
   {
     id: '16',
     title: 'image gif',
-    desc: 'build.gradle add config'
+    page: 'GifPage',
+    desc: 'android/app/build.gradle add config'
   },
 ];
 

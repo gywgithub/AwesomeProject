@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ImageBackground,
+  StatusBar
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
 
@@ -49,8 +50,9 @@ class Welcome extends Component {
     const {timeNum} = this.state;
     return (
       <View style={styles.container}>
+        <StatusBar hidden />
         <ImageBackground
-          source={require('../assets/images/1.jpeg')}
+          source={require('../assets/images/2.jpeg')}
           style={styles.imageBackground}>
           <Text onPress={this.goHome} style={styles.goHomeText}>
             {timeNum} 跳过

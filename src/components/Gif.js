@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 import {NavigationBar} from 'teaset-pro';
 
-class TemplateClassPage extends Component {
+class Gif extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'TemplateClassPage',
+      title: 'Gif',
     };
   }
   async componentDidMount() {
@@ -24,15 +24,21 @@ class TemplateClassPage extends Component {
       <View style={styles.container}>
         <NavigationBar
           style={{backgroundColor: '#30B7FF'}}
-          title="TemplatePage"
+          title=""
           leftView={
             <NavigationBar.BackButton
-              title=""
+              title="image gif"
               onPress={this.handleGoBack}
             />
           }
         />
-        <Text>{title}</Text>
+        <View style={{margin: 10}}>
+        <Text>在 android/app/build.gradle 文件的 dependencies 中添加如下配置，Gif 图片才能正常动态显示</Text>
+        <Text>implementation "com.facebook.fresco:animated-gif:2.6.0"</Text>
+        </View>
+        <Image
+          source={require('../assets/images/luffy-1.gif')}
+          style={{resizeMode: 'cover'}}></Image>
       </View>
     );
   }
@@ -47,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TemplateClassPage;
+export default Gif;

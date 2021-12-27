@@ -57,10 +57,10 @@ class TemplateClassPage extends Component {
       <View style={styles.container}>
         <NavigationBar
           style={{backgroundColor: '#30B7FF'}}
-          title=""
+          title="FS"
           leftView={
             <NavigationBar.BackButton
-              title="TemplatePage"
+              title=""
               onPress={this.handleGoBack}
             />
           }

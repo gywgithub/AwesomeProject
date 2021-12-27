@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, StatusBar} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -9,8 +9,12 @@ import ComponentsPage from './ComponentsPage';
 const Tab = createBottomTabNavigator();
 
 function HomeScreen() {
+  const styleTypes = ['default', 'dark-content', 'light-content'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[1]);
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+
       <Text>Home</Text>
       <MaterialCommunityIcons name="rocket" size={30} color="#900" />
       <Text>1.Introduce</Text>
@@ -30,6 +34,8 @@ function SettingsScreen() {
 }
 
 const Home = () => {
+  StatusBar.setHidden(false);
+  StatusBar.setBarStyle('light-content')
   return (
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
@@ -37,7 +43,11 @@ const Home = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="home-outline" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="home-outline"
+              color={color}
+              size={size}
+            />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}
@@ -47,7 +57,11 @@ const Home = () => {
         component={ComponentsPage}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="format-list-text" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="format-list-text"
+              color={color}
+              size={size}
+            />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}
@@ -57,7 +71,11 @@ const Home = () => {
         component={SettingsScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="compass-outline" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="compass-outline"
+              color={color}
+              size={size}
+            />
           ),
           tabBarBadge: 3,
           tabBarLabelStyle: styles.tabBarLabel,
@@ -68,7 +86,11 @@ const Home = () => {
         component={MyPage}
         options={{
           tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons name="account-outline" color={color} size={size} />
+            <MaterialCommunityIcons
+              name="account-outline"
+              color={color}
+              size={size}
+            />
           ),
           tabBarLabelStyle: styles.tabBarLabel,
         }}

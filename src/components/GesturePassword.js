@@ -52,8 +52,8 @@ export default class GesturePasswordPage extends Component {
       <View style={styles.container}>
         <NavigationBar
           style={{backgroundColor: '#30B7FF'}}
-          title=""
-          leftView={<NavigationBar.BackButton title="手势修改" onPress={this.handleGoBack} />}
+          title="手势"
+          leftView={<NavigationBar.BackButton title="" onPress={this.handleGoBack} />}
         />
         <View style={{height: 70, marginTop: 130, marginBottom: 20}}>
           <View style={styles.headContent}>
