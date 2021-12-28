@@ -42,10 +42,6 @@ const DATA = [
     title: 'react-native-vector-icons',
   },
   {
-    id: '8',
-    title: 'teaset-pro',
-  },
-  {
     id: '9',
     title: 'react-native-swiper',
   },

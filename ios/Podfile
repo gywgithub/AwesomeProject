@@ -14,6 +14,8 @@ target 'AwesomeProject' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNAudio', :path => '../node_modules/react-native-audio'
+
   target 'AwesomeProjectTests' do
     inherit! :complete
     # Pods for testing
