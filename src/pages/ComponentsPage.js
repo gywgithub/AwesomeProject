@@ -44,6 +44,7 @@ const DATA = [
   {
     id: '9',
     title: 'react-native-swiper',
+    page: 'SwiperPage',
   },
   {
     id: '10',

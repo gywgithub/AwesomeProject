@@ -10,6 +10,7 @@ import GesturePasswordPage from './components/GesturePassword';
 import MmkvPage from './components/MMKV';
 import RNFSPage from './components/FS';
 import GifPage from './components/Gif';
+import SwiperPage from './components/Swiper';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ const App = () => {
         <Stack.Screen name="MmkvPage" component={MmkvPage} />
         <Stack.Screen name="RNFSPage" component={RNFSPage} />
         <Stack.Screen name="GifPage" component={GifPage} />
+        <Stack.Screen name="SwiperPage" component={SwiperPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
