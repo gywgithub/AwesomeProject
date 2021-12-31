@@ -14,13 +14,7 @@ function HomeScreen() {
   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[1]);
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-
-      <Text>Home</Text>
-      <MaterialCommunityIcons name="rocket" size={30} color="#900" />
-      <Text>1.Introduce</Text>
-      <Text>2.Component</Text>
-      <Text>3.Discover</Text>
-      <Text>4.My</Text>
+      <Text>Home Introduce</Text>
     </View>
   );
 }
@@ -28,7 +22,7 @@ function HomeScreen() {
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings!</Text>
+      <Text>Settings</Text>
     </View>
   );
 }
