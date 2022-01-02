@@ -76,7 +76,7 @@ const Home = () => {
         }}
       />
       <Tab.Screen
-        name="MyPage"
+        name="My"
         component={MyPage}
         options={{
           tabBarIcon: ({color, size}) => (

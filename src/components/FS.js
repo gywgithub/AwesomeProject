@@ -13,27 +13,24 @@ class TemplateClassPage extends Component {
   async componentDidMount() {
     console.log('componentDidMount');
 
+    // fs.DocumentDirectoryPath // 文件目录，存储在APP安装目录，用户无法访问
     console.log(fs.ExternalDirectoryPath); // /data/user/0/com.github_reactnative/files
-    var path = fs.ExternalDirectoryPath + '/test.txt';
+    var path = fs.ExternalDirectoryPath + '/test.txt'; // 外部路径，可以在文件管理中访问
     let value = 'hello 123';
     fs.writeFile(path, value, 'utf8')
       .then(res => {
-        console.log('111');
-        // console.log(res)
+        console.log(res)
       })
       .catch(err => {
-        console.log('eee');
         console.log(err);
         console.error(err);
       });
 
     fs.readFile(path, 'utf8')
       .then(res => {
-        console.log('222');
         console.log(res);
       })
       .catch(err => {
-        console.log('333');
         console.error(err);
       });
 
@@ -65,7 +62,7 @@ class TemplateClassPage extends Component {
             />
           }
         />
-        <Text>{title}</Text>
+        <Text>https://github.com/itinance/react-native-fs</Text>
       </View>
     );
   }
