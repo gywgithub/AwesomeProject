@@ -12,6 +12,10 @@ import RNFSPage from './components/FS';
 import GifPage from './components/Gif';
 import SwiperPage from './components/Swiper';
 
+// set app theme
+import {Theme} from 'teaset-pro';
+Theme.set(Theme.themes.black);
+
 const Stack = createNativeStackNavigator();
 
 const App = () => {

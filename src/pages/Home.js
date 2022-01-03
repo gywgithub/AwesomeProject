@@ -5,19 +5,20 @@ import {NavigationContainer} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MyPage from './MyPage';
 import ComponentsPage from './ComponentsPage';
+import FirstPage from './FirstPage';
 
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
-  const styleTypes = ['default', 'dark-content', 'light-content'];
-  const [visibleStatusBar, setVisibleStatusBar] = useState(false);
-  const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[1]);
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home Introduce</Text>
-    </View>
-  );
-}
+// function HomeScreen() {
+//   const styleTypes = ['default', 'dark-content', 'light-content'];
+//   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
+//   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[1]);
+//   return (
+//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//       <Text>Home Introduce</Text>
+//     </View>
+//   );
+// }
 
 function SettingsScreen() {
   return (
@@ -34,7 +35,7 @@ const Home = () => {
     <Tab.Navigator screenOptions={{headerShown: false}}>
       <Tab.Screen
         name="Home"
-        component={HomeScreen}
+        component={FirstPage}
         options={{
           tabBarIcon: ({color, size}) => (
             <MaterialCommunityIcons
