@@ -1,104 +1,148 @@
-import React, {useState} from 'react';
-import {View, Text, StyleSheet, StatusBar} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import MyPage from './MyPage';
-import ComponentsPage from './ComponentsPage';
-import FirstPage from './FirstPage';
+import React from 'react';
+import { View, ScrollView, Image, Switch, Platform } from 'react-native';
 
-const Tab = createBottomTabNavigator();
+import {
+  NavigationPage,
+  BasePage,
+  ListRow,
+  TabView,
+  Label,
+  SelectRow,
+  Toast,
+} from 'teaset-pro';
 
-// function HomeScreen() {
-//   const styleTypes = ['default', 'dark-content', 'light-content'];
-//   const [visibleStatusBar, setVisibleStatusBar] = useState(false);
-//   const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[1]);
-//   return (
-//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-//       <Text>Home Introduce</Text>
-//     </View>
-//   );
-// }
+export default class TabViewExample extends BasePage {
+  static defaultProps = {
+    ...BasePage.defaultProps,
+  };
 
-function SettingsScreen() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Settings</Text>
-    </View>
-  );
+  constructor(props) {
+    super(props);
+    Object.assign(this.state, {
+      type: 'projector',
+      custom: false,
+    });
+  }
+
+  renderCustomButton() {
+    let bigIcon = (
+      <View
+        style={{
+          width: 54,
+          height: 54,
+          borderRadius: 27,
+          shadowColor: '#ccc',
+          shadowOffset: { height: -1 },
+          shadowOpacity: 0.5,
+          shadowRadius: 0.5,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Image
+          style={{ width: 44, height: 44, borderRadius: 22 }}
+          source={require('../assets/images/avatar-mini.png')}
+        />
+      </View>
+    );
+    return (
+      <TabView.Sheet
+        type="button"
+        title="Custom"
+        icon={bigIcon}
+        iconContainerStyle={{ justifyContent: 'flex-end' }}
+        onPress={() => Toast.message('Custom button press')}
+      />
+    );
+  }
+
+  renderPage() {
+    let { type, custom } = this.state;
+    let customBarStyle =
+      Platform.OS === 'android'
+        ? null
+        : {
+            borderTopWidth: 0,
+            shadowColor: '#ccc',
+            shadowOffset: { height: -1 },
+            shadowOpacity: 0.4,
+            shadowRadius: 0.5,
+          };
+    return (
+      <TabView
+        style={{ flex: 1 }}
+        barStyle={custom ? customBarStyle : null}
+        type={type}>
+        <TabView.Sheet
+          title="Home"
+          icon={require('../icons/home.png')}
+          activeIcon={require('../icons/home_active.png')}>
+          <HomePage
+            type={type}
+            custom={custom}
+            onChangeType={activeType => this.setState({ type: activeType })}
+            onChangeCustom={cus => this.setState({ custom: cus })}
+          />
+        </TabView.Sheet>
+        {custom ? this.renderCustomButton() : null}
+        <TabView.Sheet
+          title="Me"
+          icon={require('../icons/me.png')}
+          activeIcon={require('../icons/me_active.png')}
+          badge={1}>
+          <MePage />
+        </TabView.Sheet>
+      </TabView>
+    );
+  }
 }
 
-const Home = () => {
-  StatusBar.setHidden(false);
-  StatusBar.setBarStyle('light-content')
-  return (
-    <Tab.Navigator screenOptions={{headerShown: false}}>
-      <Tab.Screen
-        name="Home"
-        component={FirstPage}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="home-outline"
-              color={color}
-              size={size}
-            />
-          ),
-          tabBarLabelStyle: styles.tabBarLabel,
-        }}
-      />
-      <Tab.Screen
-        name="Components"
-        component={ComponentsPage}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="format-list-text"
-              color={color}
-              size={size}
-            />
-          ),
-          tabBarLabelStyle: styles.tabBarLabel,
-        }}
-      />
-      <Tab.Screen
-        name="Discover"
-        component={SettingsScreen}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="compass-outline"
-              color={color}
-              size={size}
-            />
-          ),
-          tabBarBadge: 3,
-          tabBarLabelStyle: styles.tabBarLabel,
-        }}
-      />
-      <Tab.Screen
-        name="My"
-        component={MyPage}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <MaterialCommunityIcons
-              name="account-outline"
-              color={color}
-              size={size}
-            />
-          ),
-          tabBarLabelStyle: styles.tabBarLabel,
-        }}
-      />
-    </Tab.Navigator>
-  );
-};
+class HomePage extends NavigationPage {
+  static defaultProps = {
+    ...NavigationPage.defaultProps,
+    title: 'Home',
+  };
 
-const styles = StyleSheet.create({
-  tabBarLabel: {
-    marginBottom: 4,
-    marginTop: -4,
-  },
-});
+  renderPage() {
+    let { type, custom, onChangeCustom, onChangeType } = this.props;
+    return (
+      <ScrollView style={{ flex: 1 }}>
+        <View style={{ height: 20 }} />
+        <SelectRow
+          title="Type"
+          value={type}
+          items={['projector', 'carousel']}
+          onSelected={item => onChangeType && onChangeType(item)}
+          topSeparator="full"
+          bottomSeparator="full"
+        />
+        <View style={{ height: 20 }} />
+        <ListRow
+          title="Custom"
+          detail={
+            <Switch
+              value={custom}
+              onValueChange={value => onChangeCustom(value)}
+            />
+          }
+          topSeparator="full"
+          bottomSeparator="full"
+        />
+      </ScrollView>
+    );
+  }
+}
 
-export default Home;
+class MePage extends NavigationPage {
+  static defaultProps = {
+    ...NavigationPage.defaultProps,
+    title: 'Me',
+  };
+
+  renderPage() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Label type="detail" size="xl" text={this.props.title} />
+      </View>
+    );
+  }
+}
