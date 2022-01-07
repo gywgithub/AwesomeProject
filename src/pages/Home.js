@@ -74,8 +74,8 @@ export default class TabViewExample extends BasePage {
         type={type}>
         <TabView.Sheet
           title="Home"
-          icon={require('../icons/home.png')}
-          activeIcon={require('../icons/home_active.png')}>
+          icon={require('../assets/icons/home.png')}
+          activeIcon={require('../assets/icons/home_active.png')}>
           <HomePage
             type={type}
             custom={custom}
@@ -86,8 +86,8 @@ export default class TabViewExample extends BasePage {
         {custom ? this.renderCustomButton() : null}
         <TabView.Sheet
           title="Me"
-          icon={require('../icons/me.png')}
-          activeIcon={require('../icons/me_active.png')}
+          icon={require('../assets/icons/me.png')}
+          activeIcon={require('../assets/icons/me_active.png')}
           badge={1}>
           <MePage />
         </TabView.Sheet>
