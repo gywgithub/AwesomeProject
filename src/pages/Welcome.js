@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     width: 70,
     textAlign: 'center',
     position: 'absolute',
-    top: 20,
+    top: 30,
     right: 20,
     color: '#fff',
     padding: 8,

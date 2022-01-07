@@ -12,39 +12,43 @@ class FirstPage extends Component {
 
   backAction = () => {
     if (this.state.backFlag === 0) {
-      Toast.message('再按一次返回将退出APP')
+      Toast.message('再按一次返回将退出APP');
       this.setState({
-        backFlag: 1
-      })
+        backFlag: 1,
+      });
       return true;
     } else {
-      BackHandler.exitApp()
+      BackHandler.exitApp();
       // return false
     }
-  }
+  };
 
   async componentDidMount() {
     console.log('componentDidMount');
-    let self = this
-    this.unsubscribe = this.props.navigation.addListener('focus', () => {
+    let self = this;
+    this.unsubscribe = this.props.navigation.addListener('focus', (e) => {
+      console.log(e)
       this.setState({
-        backFlag: 0
-      })
+        backFlag: 0,
+      });
       self.backHandler = BackHandler.addEventListener(
-        "hardwareBackPress",
-        self.backAction
+        'hardwareBackPress',
+        self.backAction,
       );
     });
 
-    this.unblurSubscribe = this.props.navigation.addListener('blur', ()=> {
+    this.unblurSubscribe = this.props.navigation.addListener('blur', (e) => {
+      console.log(e)
       if (self.backHandler) {
         self.backHandler.remove();
       }
-    })
+    });
   }
 
   componentWillUnmount() {
     // this.unsubscribe.remove();
+    // this.unsubscribe();
+    // this.unblurSubscribe();
   }
 
   handleGoBack = () => {
@@ -56,9 +60,7 @@ class FirstPage extends Component {
     const {title} = this.state;
     return (
       <View style={styles.container}>
-        <NavigationBar
-          title="Home"
-        />
+        <NavigationBar title="Home" />
         <Text>{title}</Text>
       </View>
     );

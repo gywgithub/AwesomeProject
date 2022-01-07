@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, ScrollView, Image, Switch, Platform } from 'react-native';
+import {
+  View,
+  ScrollView,
+  Image,
+  Switch,
+  Platform,
+  StatusBar,
+} from 'react-native';
 
 import {
   NavigationPage,
@@ -32,14 +39,14 @@ export default class TabViewExample extends BasePage {
           height: 54,
           borderRadius: 27,
           shadowColor: '#ccc',
-          shadowOffset: { height: -1 },
+          shadowOffset: {height: -1},
           shadowOpacity: 0.5,
           shadowRadius: 0.5,
           alignItems: 'center',
           justifyContent: 'center',
         }}>
         <Image
-          style={{ width: 44, height: 44, borderRadius: 22 }}
+          style={{width: 44, height: 44, borderRadius: 22}}
           source={require('../assets/images/avatar-mini.png')}
         />
       </View>
@@ -49,27 +56,29 @@ export default class TabViewExample extends BasePage {
         type="button"
         title="Custom"
         icon={bigIcon}
-        iconContainerStyle={{ justifyContent: 'flex-end' }}
+        iconContainerStyle={{justifyContent: 'flex-end'}}
         onPress={() => Toast.message('Custom button press')}
       />
     );
   }
 
   renderPage() {
-    let { type, custom } = this.state;
+    StatusBar.setHidden(false);
+    StatusBar.setBarStyle('light-content');
+    let {type, custom} = this.state;
     let customBarStyle =
       Platform.OS === 'android'
         ? null
         : {
             borderTopWidth: 0,
             shadowColor: '#ccc',
-            shadowOffset: { height: -1 },
+            shadowOffset: {height: -1},
             shadowOpacity: 0.4,
             shadowRadius: 0.5,
           };
     return (
       <TabView
-        style={{ flex: 1 }}
+        style={{flex: 1}}
         barStyle={custom ? customBarStyle : null}
         type={type}>
         <TabView.Sheet
@@ -79,8 +88,8 @@ export default class TabViewExample extends BasePage {
           <HomePage
             type={type}
             custom={custom}
-            onChangeType={activeType => this.setState({ type: activeType })}
-            onChangeCustom={cus => this.setState({ custom: cus })}
+            onChangeType={activeType => this.setState({type: activeType})}
+            onChangeCustom={cus => this.setState({custom: cus})}
           />
         </TabView.Sheet>
         {custom ? this.renderCustomButton() : null}
@@ -103,10 +112,10 @@ class HomePage extends NavigationPage {
   };
 
   renderPage() {
-    let { type, custom, onChangeCustom, onChangeType } = this.props;
+    let {type, custom, onChangeCustom, onChangeType} = this.props;
     return (
-      <ScrollView style={{ flex: 1 }}>
-        <View style={{ height: 20 }} />
+      <ScrollView style={{flex: 1}}>
+        <View style={{height: 20}} />
         <SelectRow
           title="Type"
           value={type}
@@ -115,7 +124,7 @@ class HomePage extends NavigationPage {
           topSeparator="full"
           bottomSeparator="full"
         />
-        <View style={{ height: 20 }} />
+        <View style={{height: 20}} />
         <ListRow
           title="Custom"
           detail={
@@ -140,7 +149,7 @@ class MePage extends NavigationPage {
 
   renderPage() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Label type="detail" size="xl" text={this.props.title} />
       </View>
     );

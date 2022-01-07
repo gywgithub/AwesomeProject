@@ -19,6 +19,7 @@ Theme.set(Theme.themes.black);
 const Stack = createNativeStackNavigator();
 
 const App = () => {
+  StatusBar.setHidden(true);
   // const styleTypes = ['default', 'dark-content', 'light-content'];
   // const [visibleStatusBar, setVisibleStatusBar] = useState(false);
   // const [styleStatusBar, setStyleStatusBar] = useState(styleTypes[0]);
