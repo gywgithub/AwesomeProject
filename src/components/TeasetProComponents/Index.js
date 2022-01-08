@@ -11,71 +11,8 @@ import {StackActions} from '@react-navigation/native';
 
 const DATA = [
   {
-    id: '1',
-    title: 'react-native-ok-gesture-password',
-    page: 'GesturePasswordPage',
-  },
-  {
-    id: '2',
-    title: 'react-native-mmkv',
-    page: 'MmkvPage',
-  },
-  {
-    id: '3',
-    title: 'react-native-fs',
-    page: 'RNFSPage',
-  },
-  {
-    id: '4',
-    title: 'react-native-progress',
-  },
-  {
-    id: '5',
-    title: 'Teaset-pro',
-    page: 'TeasetProIndexPage'
-  },
-  {
-    id: '6',
-    title: 'react-native-svg',
-  },
-  {
-    id: '7',
-    title: 'react-native-vector-icons',
-  },
-  {
-    id: '9',
-    title: 'react-native-swiper',
-    page: 'SwiperPage',
-  },
-  {
-    id: '10',
-    title: 'react-native-htmlview',
-  },
-  {
-    id: '11',
-    title: 'react-native-device-info',
-  },
-  {
-    id: '12',
-    title: 'react-native-camera',
-  },
-  {
-    id: '13',
-    title: 'react-native-audio',
-  },
-  {
-    id: '14',
-    title: 'react-native-android-auto-update',
-  },
-  {
-    id: '15',
-    title: 'react-native-amap-geolocation',
-  },
-  {
-    id: '16',
-    title: 'image gif',
-    page: 'GifPage',
-    desc: 'android/app/build.gradle add config'
+    title: 'TabView',
+    page: 'TeasetProTabViewPage',
   },
 ];
 
@@ -89,11 +26,11 @@ const DATA = [
 //   );
 // };
 
-class ComponentsPage extends Component {
+class TeasetProIndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'ComponentsPage',
+      title: 'TeasetProIndexPage',
     };
   }
   async componentDidMount() {
@@ -145,4 +82,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ComponentsPage;
+export default TeasetProIndexPage;

@@ -11,6 +11,8 @@ import MmkvPage from './components/MMKV';
 import RNFSPage from './components/FS';
 import GifPage from './components/Gif';
 import SwiperPage from './components/Swiper';
+import TeasetProIndexPage from './components/TeasetProComponents/Index';
+import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
 
 // set app theme
 import {Theme} from 'teaset-pro';
@@ -27,7 +29,7 @@ const App = () => {
   // <StatusBar barStyle={styleStatusBar} backgroundColor="#30B7FF" />
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName="Home" screenOptions={{headerShown: false}}>
         <Stack.Screen name="Welcome" component={Welcome} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="MyPage" component={MyPage} />
@@ -37,6 +39,8 @@ const App = () => {
         <Stack.Screen name="RNFSPage" component={RNFSPage} />
         <Stack.Screen name="GifPage" component={GifPage} />
         <Stack.Screen name="SwiperPage" component={SwiperPage} />
+        <Stack.Screen name="TeasetProIndexPage" component={TeasetProIndexPage} />
+        <Stack.Screen name="TeasetProTabViewPage" component={TeasetProTabViewPage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
