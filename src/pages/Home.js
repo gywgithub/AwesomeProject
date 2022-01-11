@@ -1,17 +1,22 @@
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, StatusBar} from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
+import {DefaultTheme, DarkTheme} from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MyPage from './MyPage';
 import ComponentsPage from './ComponentsPage';
 import FirstPage from './FirstPage';
+import {NavigationBar} from 'teaset-pro';
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 
 const Tab = createBottomTabNavigator();
 
 function SettingsScreen() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <NavigationBar
+        title="Settings"
+      />
       <Text>Settings</Text>
     </View>
   );

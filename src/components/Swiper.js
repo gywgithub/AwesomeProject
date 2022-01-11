@@ -18,7 +18,6 @@ class SwiperPage extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          style={{backgroundColor: '#30B7FF'}}
           title="Swiper"
           leftView={
             <NavigationBar.BackButton title="" onPress={this.handleGoBack} />

@@ -23,11 +23,10 @@ class Gif extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          style={{backgroundColor: '#30B7FF'}}
           title=""
           leftView={
             <NavigationBar.BackButton
-              title="image gif"
+              title=""
               onPress={this.handleGoBack}
             />
           }

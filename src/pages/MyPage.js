@@ -24,9 +24,6 @@ class MyPage extends Component {
       <View style={styles.container}>
         <NavigationBar
           title="My"
-          leftView={
-            <NavigationBar.BackButton title="" onPress={this.handleGoBack} />
-          }
         />
         <View>
           <Image

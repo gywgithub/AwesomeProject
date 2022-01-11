@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
+import {NavigationBar} from 'teaset-pro';
 
 const DATA = [
   {
@@ -129,11 +130,16 @@ class ComponentsPage extends Component {
     const renderItem = ({item}) => <Item item={item} />;
     return (
       <SafeAreaView style={styles.container}>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
+        <NavigationBar
+          title="Components"
         />
+        <View style={{marginTop: 70}}>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+          />
+        </View>
       </SafeAreaView>
     );
   }

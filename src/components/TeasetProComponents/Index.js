@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import {StackActions} from '@react-navigation/native';
+import {NavigationBar} from 'teaset-pro';
 
 const DATA = [
   {
@@ -66,11 +67,19 @@ class TeasetProIndexPage extends Component {
     const renderItem = ({item}) => <Item item={item} />;
     return (
       <SafeAreaView style={styles.container}>
-        <FlatList
-          data={DATA}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
+        <NavigationBar
+          title="Teasetpro"
+          leftView={
+            <NavigationBar.BackButton title="" onPress={this.handleGoBack} />
+          }
         />
+        <View style={{marginTop: 70, marginBottom: 20}}>
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={item => item.title}
+          />
+        </View>
       </SafeAreaView>
     );
   }
