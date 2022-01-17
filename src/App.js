@@ -1,54 +1,8 @@
-// import React,{useState} from 'react';
-// import {View, Text, Image, ScrollView, TextInput, StatusBar} from 'react-native';
-// import {NavigationContainer} from '@react-navigation/native';
-// import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import Welcome from './pages/Welcome';
-// import Home from './pages/Home';
-// import Profile from './pages/Profile';
-// import ComponentsPage from './pages/ComponentsPage';
-// import GesturePasswordPage from './components/GesturePassword';
-// import MmkvPage from './components/MMKV';
-// import RNFSPage from './components/FS';
-// import GifPage from './components/Gif';
-// import SwiperPage from './components/Swiper';
-// import TeasetProIndexPage from './components/TeasetProComponents/Index';
-// import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
-//
-// // set app theme
-// import {Theme} from 'teaset-pro';
-// Theme.set(Theme.themes.black);
-//
-// const Stack = createNativeStackNavigator();
-//
-// const App = () => {
-//   StatusBar.setHidden(true);
-//   return (
-//     <NavigationContainer>
-//       <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false}}>
-//         <Stack.Screen name="Welcome" component={Welcome} />
-//         <Stack.Screen name="Home" component={Home} />
-//         <Stack.Screen name="Profile" component={Profile} />
-//         <Stack.Screen name="ComponentsPage" component={ComponentsPage} />
-//         <Stack.Screen name="GesturePasswordPage" component={GesturePasswordPage} />
-//         <Stack.Screen name="MmkvPage" component={MmkvPage} />
-//         <Stack.Screen name="RNFSPage" component={RNFSPage} />
-//         <Stack.Screen name="GifPage" component={GifPage} />
-//         <Stack.Screen name="SwiperPage" component={SwiperPage} />
-//         <Stack.Screen name="TeasetProIndexPage" component={TeasetProIndexPage} />
-//         <Stack.Screen name="TeasetProTabViewPage" component={TeasetProTabViewPage} />
-//       </Stack.Navigator>
-//     </NavigationContainer>
-//   );
-// };
-//
-// export default App;
-
 import * as React from 'react';
-import {Text, View, useColorScheme} from 'react-native';
+import {Text, View} from 'react-native';
 import {
   NavigationContainer,
-  DarkTheme,
-  DefaultTheme,
+  DarkTheme
 } from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -61,11 +15,8 @@ import GesturePasswordPage from './components/GesturePassword';
 import ComponentsPage from './pages/ComponentsPage';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
-// import Home from './pages/Home';
-// import Profile from './pages/Profile';
-// import ComponentsPage from './pages/ComponentsPage';
-// import GesturePasswordPage from './components/GesturePassword';
 import MmkvPage from './components/MMKV';
+import ProgressPage from './components/Progress';
 import RNFSPage from './components/FS';
 import GifPage from './components/Gif';
 import SwiperPage from './components/Swiper';
@@ -83,14 +34,6 @@ function Home() {
     </View>
   );
 }
-
-// function Profile() {
-//   return (
-//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-//       <Text>Profile!</Text>
-//     </View>
-//   );
-// }
 
 function Notifications() {
   return (
@@ -159,7 +102,6 @@ function MyTabs() {
 }
 
 export default function App() {
-  // useColorScheme
   return (
     <NavigationContainer theme={DarkTheme}>
       <Stack.Navigator
@@ -184,6 +126,10 @@ export default function App() {
         <Stack.Screen
           name="TeasetProTabViewPage"
           component={TeasetProTabViewPage}
+        />
+        <Stack.Screen
+          name="ProgressPage"
+          component={ProgressPage}
         />
       </Stack.Navigator>
     </NavigationContainer>

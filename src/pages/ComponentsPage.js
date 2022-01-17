@@ -29,6 +29,7 @@ const DATA = [
   {
     id: '4',
     title: 'react-native-progress',
+    page: 'ProgressPage'
   },
   {
     id: '5',

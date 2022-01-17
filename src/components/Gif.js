@@ -23,7 +23,7 @@ class Gif extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          title=""
+          title="GIF"
           leftView={
             <NavigationBar.BackButton
               title=""
