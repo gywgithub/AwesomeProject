@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {NavigationBar} from 'teaset-pro';
+import { getUniqueId, getDeviceId } from 'react-native-device-info';
 
-class TemplateClassPage extends Component {
+class DeviceInfoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'TemplateClassPage',
+      title: 'DeviceInfoPage',
+      uniqueId: getUniqueId(),
+      Id: getDeviceId()
     };
   }
   async componentDidMount() {
     console.log('componentDidMount');
+    console.log('getUniqueId ', getUniqueId())
+    console.log('getDeviceId ', getDeviceId())
   }
 
   handleGoBack = () => {
@@ -19,11 +24,11 @@ class TemplateClassPage extends Component {
   };
 
   render() {
-    const {title} = this.state;
+    const {title, Id, uniqueId} = this.state;
     return (
       <View style={styles.container}>
         <NavigationBar
-          title="TemplateClassPage"
+          title="DeviceInfoPage"
           leftView={
             <NavigationBar.BackButton
               title=""
@@ -31,7 +36,9 @@ class TemplateClassPage extends Component {
             />
           }
         />
-        <Text>{title}</Text>
+        <Text style={{color: '#d9d9d9'}}>https://github.com/react-native-device-info/react-native-device-info</Text>
+        <Text style={{marginTop: 20, color: '#d9d9d9'}}>getDeviceId() : {Id}</Text>
+        <Text style={{marginTop: 20, color: '#d9d9d9'}}>getUniqueId() : {uniqueId}</Text>
       </View>
     );
   }
@@ -46,4 +53,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TemplateClassPage;
+export default DeviceInfoPage;

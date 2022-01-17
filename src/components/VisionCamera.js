@@ -1,15 +1,18 @@
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {NavigationBar} from 'teaset-pro';
+import {useCameraDevices} from 'react-native-vision-camera'
+import { Camera, frameRateIncluded } from 'react-native-vision-camera';
 
-class TemplateClassPage extends Component {
+class VisionCameraPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'TemplateClassPage',
+      title: 'VisionCameraPage',
     };
   }
   async componentDidMount() {
+
     console.log('componentDidMount');
   }
 
@@ -20,10 +23,12 @@ class TemplateClassPage extends Component {
 
   render() {
     const {title} = this.state;
+    const devices = useCameraDevices()
+    const device = devices.back
     return (
       <View style={styles.container}>
         <NavigationBar
-          title="TemplateClassPage"
+          title="VisionCameraPage"
           leftView={
             <NavigationBar.BackButton
               title=""
@@ -32,6 +37,11 @@ class TemplateClassPage extends Component {
           }
         />
         <Text>{title}</Text>
+        <Camera
+          style={StyleSheet.absoluteFill}
+          device={device}
+          isActive={true}
+        />
       </View>
     );
   }
@@ -46,4 +56,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TemplateClassPage;
+export default VisionCameraPage;

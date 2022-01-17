@@ -42,8 +42,8 @@ class Welcome extends Component {
     });
   };
   goHome = () => {
-    console.log('Go Home');
-    this.props.navigation.dispatch(StackActions.push('Home'));
+    console.log('Go MyTabs');
+    this.props.navigation.dispatch(StackActions.push('MyTabs'));
   };
 
   render() {

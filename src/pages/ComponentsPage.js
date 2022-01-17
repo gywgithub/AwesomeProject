@@ -39,10 +39,13 @@ const DATA = [
   {
     id: '6',
     title: 'react-native-svg',
+    page: 'SvgPage',
+    desc: 'android/app/src/main/java/[...]/MainApplication.java add config'
   },
   {
     id: '7',
     title: 'react-native-vector-icons',
+    page: 'VectorIconsPage'
   },
   {
     id: '9',
@@ -52,14 +55,17 @@ const DATA = [
   {
     id: '10',
     title: 'react-native-htmlview',
+    page: 'HtmlViewPage'
   },
   {
     id: '11',
     title: 'react-native-device-info',
+    page: 'DeviceInfoPage'
   },
   {
     id: '12',
-    title: 'react-native-camera',
+    title: 'react-native-vision-camera',
+    // page: 'VisionCameraPage'
   },
   {
     id: '13',

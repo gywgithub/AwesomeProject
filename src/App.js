@@ -12,6 +12,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // pages
 import GesturePasswordPage from './components/GesturePassword';
+import SvgPage from './components/Svg';
 import ComponentsPage from './pages/ComponentsPage';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
@@ -22,6 +23,10 @@ import GifPage from './components/Gif';
 import SwiperPage from './components/Swiper';
 import TeasetProIndexPage from './components/TeasetProComponents/Index';
 import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
+import VectorIconsPage from './components/VectorIcons';
+import HtmlViewPage from './components/HtmlView';
+import DeviceInfoPage from './components/DeviceInfo';
+import VisionCameraPage from './components/VisionCamera';
 
 // set app theme
 import {Theme} from 'teaset-pro';
@@ -130,6 +135,25 @@ export default function App() {
         <Stack.Screen
           name="ProgressPage"
           component={ProgressPage}
+        /><Stack.Screen
+          name="SvgPage"
+          component={SvgPage}
+        />
+        <Stack.Screen
+          name="VectorIconsPage"
+          component={VectorIconsPage}
+        />
+        <Stack.Screen
+          name="HtmlViewPage"
+          component={HtmlViewPage}
+        />
+        <Stack.Screen
+          name="DeviceInfoPage"
+          component={DeviceInfoPage}
+        />
+        <Stack.Screen
+          name="VisionCameraPage"
+          component={VisionCameraPage}
         />
       </Stack.Navigator>
     </NavigationContainer>

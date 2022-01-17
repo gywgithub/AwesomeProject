@@ -2,7 +2,7 @@
 
 ## AwesomeProject
 
-> React Native Android 模板项目，封装了常见模块，以及使用方式
+> React Native Android 模板项目，提取了项目中用过的模块，部分模块无页面直接展示效果，按需查看相关模块代码
 
 ### 功能特性
 
