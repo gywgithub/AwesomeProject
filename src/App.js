@@ -4,7 +4,7 @@
 // import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // import Welcome from './pages/Welcome';
 // import Home from './pages/Home';
-// import MyPage from './pages/MyPage';
+// import Profile from './pages/Profile';
 // import ComponentsPage from './pages/ComponentsPage';
 // import GesturePasswordPage from './components/GesturePassword';
 // import MmkvPage from './components/MMKV';
@@ -27,7 +27,7 @@
 //       <Stack.Navigator initialRouteName="Welcome" screenOptions={{headerShown: false}}>
 //         <Stack.Screen name="Welcome" component={Welcome} />
 //         <Stack.Screen name="Home" component={Home} />
-//         <Stack.Screen name="MyPage" component={MyPage} />
+//         <Stack.Screen name="Profile" component={Profile} />
 //         <Stack.Screen name="ComponentsPage" component={ComponentsPage} />
 //         <Stack.Screen name="GesturePasswordPage" component={GesturePasswordPage} />
 //         <Stack.Screen name="MmkvPage" component={MmkvPage} />
@@ -43,64 +43,79 @@
 //
 // export default App;
 
-
 import * as React from 'react';
-import { Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import {Text, View, useColorScheme} from 'react-native';
+import {
+  NavigationContainer,
+  DarkTheme,
+  DefaultTheme,
+} from '@react-navigation/native';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import ComponentsPage from './pages/ComponentsPage';
-import AppNavigator from './navigator/AppNavigators';
-import {createNativeStackNavigator } from '@react-navigation/native-stack';
-import GesturePasswordPage from './components/GesturePassword';
 
+import AppNavigator from './navigator/AppNavigators';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+// pages
+import GesturePasswordPage from './components/GesturePassword';
+import ComponentsPage from './pages/ComponentsPage';
+import Profile from './pages/Profile';
+import Welcome from './pages/Welcome';
+// import Home from './pages/Home';
+// import Profile from './pages/Profile';
+// import ComponentsPage from './pages/ComponentsPage';
+// import GesturePasswordPage from './components/GesturePassword';
+import MmkvPage from './components/MMKV';
+import RNFSPage from './components/FS';
+import GifPage from './components/Gif';
+import SwiperPage from './components/Swiper';
+import TeasetProIndexPage from './components/TeasetProComponents/Index';
+import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
 
 // set app theme
 import {Theme} from 'teaset-pro';
 Theme.set(Theme.themes.black);
 
-function Feed() {
+function Home() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed!</Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{color: '#d9d9d9'}}>Home!</Text>
     </View>
   );
 }
 
-function Profile() {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Profile!</Text>
-    </View>
-  );
-}
+// function Profile() {
+//   return (
+//     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+//       <Text>Profile!</Text>
+//     </View>
+//   );
+// }
 
 function Notifications() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Text style={{color: '#d9d9d9'}}>Notifications!</Text>
     </View>
   );
 }
 
 const Tab = createMaterialBottomTabNavigator();
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 
 function MyTabs() {
   return (
-
     <Tab.Navigator
-      initialRouteName="Feed"
+      initialRouteName="Home"
       activeColor="#ffffff"
-      labelStyle={{ fontSize: 12 }}
-      barStyle={{ backgroundColor: 'black' }}
-    >
+      labelStyle={{fontSize: 12}}
+      barStyle={{backgroundColor: 'black'}}>
       <Tab.Screen
-        name="Feed"
-        component={Feed}
+        name="Home"
+        component={Home}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }}
@@ -110,8 +125,12 @@ function MyTabs() {
         component={ComponentsPage}
         options={{
           tabBarLabel: 'Components',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="format-list-text" color={color} size={26} />
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons
+              name="format-list-text"
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
@@ -119,9 +138,9 @@ function MyTabs() {
         name="Notifications"
         component={Notifications}
         options={{
-          tabBarLabel: 'Updates',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          tabBarLabel: 'Discover',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="compass" color={color} size={26} />
           ),
         }}
       />
@@ -130,7 +149,7 @@ function MyTabs() {
         component={Profile}
         options={{
           tabBarLabel: 'Profile',
-          tabBarIcon: ({ color }) => (
+          tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
@@ -140,15 +159,33 @@ function MyTabs() {
 }
 
 export default function App() {
+  // useColorScheme
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="MyTabs" screenOptions={{headerShown: false}} >
+    <NavigationContainer theme={DarkTheme}>
+      <Stack.Navigator
+        initialRouteName="MyTabs"
+        screenOptions={{headerShown: false}}>
         <Stack.Screen name="MyTabs" component={MyTabs}></Stack.Screen>
-          <Stack.Screen name="GesturePasswordPage" component={GesturePasswordPage}></Stack.Screen>
+        <Stack.Screen
+          name="GesturePasswordPage"
+          component={GesturePasswordPage}></Stack.Screen>
+        <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
+        <Stack.Screen name="Welcome" component={Welcome} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ComponentsPage" component={ComponentsPage} />
+        <Stack.Screen name="MmkvPage" component={MmkvPage} />
+        <Stack.Screen name="RNFSPage" component={RNFSPage} />
+        <Stack.Screen name="GifPage" component={GifPage} />
+        <Stack.Screen name="SwiperPage" component={SwiperPage} />
+        <Stack.Screen
+          name="TeasetProIndexPage"
+          component={TeasetProIndexPage}
+        />
+        <Stack.Screen
+          name="TeasetProTabViewPage"
+          component={TeasetProTabViewPage}
+        />
       </Stack.Navigator>
-      {/*
-        <MyTabs />
-        */}
     </NavigationContainer>
   );
 }

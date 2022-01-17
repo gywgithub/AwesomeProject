@@ -19,7 +19,7 @@ class TemplateClassPage extends Component {
     let value = 'hello 123';
     fs.writeFile(path, value, 'utf8')
       .then(res => {
-        console.log(res)
+        console.log(res);
       })
       .catch(err => {
         console.log(err);
@@ -55,13 +55,15 @@ class TemplateClassPage extends Component {
         <NavigationBar
           title="FS"
           leftView={
-            <NavigationBar.BackButton
-              title=""
-              onPress={this.handleGoBack}
-            />
+            <NavigationBar.BackButton title="" onPress={this.handleGoBack} />
           }
         />
-        <Text>https://github.com/itinance/react-native-fs</Text>
+        <Text style={{color: '#d9d9d9'}}>
+          https://github.com/itinance/react-native-fs
+        </Text>
+        <Text style={{color: '#d9d9d9'}}>
+          see the terminal and componentDidMount()
+        </Text>
       </View>
     );
   }
@@ -73,6 +75,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    color: '#d9d9d9',
   },
 });
 

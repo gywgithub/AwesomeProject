@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet, Image} from 'react-native';
 import {NavigationBar} from 'teaset-pro';
 
-class MyPage extends Component {
+class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: 'MyPage',
+      title: 'Profile',
     };
   }
   async componentDidMount() {
@@ -23,7 +23,7 @@ class MyPage extends Component {
     return (
       <View style={styles.container}>
         <NavigationBar
-          title="My"
+          title="Profile"
         />
         <View>
           <Image
@@ -91,16 +91,16 @@ const styles = StyleSheet.create({
   textTitle: {
     fontSize: 20,
     width: 80,
-    color: '#616161',
+    color: '#d9d9d9',
   },
   textSize: {
     fontSize: 20,
-    color: '#616161',
+    color: '#d9d9d9',
   },
   textValue: {
     fontSize: 20,
-    color: '#616161',
+    color: '#d9d9d9',
   },
 });
 
-export default MyPage;
+export default Profile;
