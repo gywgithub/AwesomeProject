@@ -5,7 +5,7 @@ import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.rnim.rn.audio.ReactNativeAudioPackage;
-import com.horcrux.svg.SvgPackage;
+// import com.horcrux.svg.SvgPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -15,7 +15,7 @@ import java.util.List;
 
 // import com.reactnativemmkv.MmkvModulePackage;
 import com.facebook.react.bridge.JSIModulePackage;
-import com.oblador.vectoricons.VectorIconsPackage;
+// import com.oblador.vectoricons.VectorIconsPackage;
 
 // 热更新
 import cn.reactnative.modules.update.UpdateContext;
@@ -46,8 +46,8 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
-          packages.add(new SvgPackage());
-          packages.add(new VectorIconsPackage());
+          // packages.add(new SvgPackage());
+          // packages.add(new VectorIconsPackage());
           return packages;
         }
 

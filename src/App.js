@@ -7,7 +7,7 @@ import {
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import AppNavigator from './navigator/AppNavigators';
+// import AppNavigator from './navigator/AppNavigators';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // pages
@@ -26,7 +26,7 @@ import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
 import VectorIconsPage from './components/VectorIcons';
 import HtmlViewPage from './components/HtmlView';
 import DeviceInfoPage from './components/DeviceInfo';
-import VisionCameraPage from './components/VisionCamera';
+// import VisionCameraPage from './components/VisionCamera';
 
 // set app theme
 import {Theme} from 'teaset-pro';
@@ -150,10 +150,6 @@ export default function App() {
         <Stack.Screen
           name="DeviceInfoPage"
           component={DeviceInfoPage}
-        />
-        <Stack.Screen
-          name="VisionCameraPage"
-          component={VisionCameraPage}
         />
       </Stack.Navigator>
     </NavigationContainer>
