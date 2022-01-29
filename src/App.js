@@ -6,8 +6,6 @@ import {
 } from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
-// import AppNavigator from './navigator/AppNavigators';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // pages
@@ -27,24 +25,11 @@ import TeasetProTabViewPage from './components/TeasetProComponents/TabView';
 import VectorIconsPage from './components/VectorIcons';
 import HtmlViewPage from './components/HtmlView';
 import DeviceInfoPage from './components/DeviceInfo';
-// import VisionCameraPage from './components/VisionCamera';
 import Video from 'react-native-video';
 
 // set app theme
 import {Theme} from 'teaset-pro';
 Theme.set(Theme.themes.black);
-
-function Home() {
-  return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{color: '#d9d9d9'}}>111!</Text>
-        <Video source={{uri: "./assets/video/Law.mp4"}}
-       ref={(ref) => {
-       }}
-       style={{width: 300,height: 300,borderWidth: 2, borderColor: 'red'}} />
-    </View>
-  );
-}
 
 function Notifications() {
   return (
@@ -124,7 +109,6 @@ export default function App() {
           component={GesturePasswordPage}></Stack.Screen>
         <Stack.Screen name="Profile" component={Profile}></Stack.Screen>
         <Stack.Screen name="Welcome" component={Welcome} />
-        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="ComponentsPage" component={ComponentsPage} />
         <Stack.Screen name="MmkvPage" component={MmkvPage} />
         <Stack.Screen name="RNFSPage" component={RNFSPage} />
