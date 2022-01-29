@@ -8,6 +8,7 @@ import ComponentsPage from './ComponentsPage';
 import FirstPage from './FirstPage';
 import {NavigationBar} from 'teaset-pro';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+import Video from 'react-native-video';
 
 const Tab = createBottomTabNavigator();
 

@@ -44,6 +44,7 @@
     "react-native-tab-view": "^3.0.0",
     "react-native-update": "^7.3.4",
     "react-native-vector-icons": "^9.0.0",
+    "react-native-video": "^5.2.0",
     "teaset-pro": "^0.8.6"
   },
   "devDependencies": {

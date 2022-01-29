@@ -16,6 +16,7 @@ import SvgPage from './components/Svg';
 import ComponentsPage from './pages/ComponentsPage';
 import Profile from './pages/Profile';
 import Welcome from './pages/Welcome';
+import FirstPage from './pages/FirstPage';
 import MmkvPage from './components/MMKV';
 import ProgressPage from './components/Progress';
 import RNFSPage from './components/FS';
@@ -27,6 +28,7 @@ import VectorIconsPage from './components/VectorIcons';
 import HtmlViewPage from './components/HtmlView';
 import DeviceInfoPage from './components/DeviceInfo';
 // import VisionCameraPage from './components/VisionCamera';
+import Video from 'react-native-video';
 
 // set app theme
 import {Theme} from 'teaset-pro';
@@ -35,7 +37,11 @@ Theme.set(Theme.themes.black);
 function Home() {
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text style={{color: '#d9d9d9'}}>Home!</Text>
+      <Text style={{color: '#d9d9d9'}}>111!</Text>
+        <Video source={{uri: "./assets/video/Law.mp4"}}
+       ref={(ref) => {
+       }}
+       style={{width: 300,height: 300,borderWidth: 2, borderColor: 'red'}} />
     </View>
   );
 }
@@ -60,7 +66,7 @@ function MyTabs() {
       barStyle={{backgroundColor: 'black'}}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={FirstPage}
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
