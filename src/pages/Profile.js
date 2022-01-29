@@ -33,7 +33,7 @@ class Profile extends Component {
         </View>
         <View>
           <View style={styles.textView}>
-            <Text style={styles.textTitle}>Author：</Text>
+            <Text style={styles.textTitle}>Author: </Text>
             <Text style={styles.textValue}>Sabo</Text>
           </View>
           <View style={styles.textView}>

@@ -4,6 +4,11 @@
 
 > React Native Android 模板项目，提取了项目中用过的模块，部分模块无页面直接展示效果，按需查看相关模块代码
 
+
+### Preview
+
+![preview gif](./images/preview.gif)
+
 ### 功能特性
 
 - 热更新
