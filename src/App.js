@@ -79,7 +79,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Discover',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="compass" color={color} size={26} />
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
         }}
       />
