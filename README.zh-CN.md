@@ -41,6 +41,8 @@
   - react-native-android-auto-update
 - GIF 动态图
   - build.gradle add config
+- 视频
+  - react-native-video
 
 ### 项目本地运行
 
